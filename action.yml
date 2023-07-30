@@ -30,4 +30,4 @@ outputs:
     description: 'Endpoint Result URL'
 runs:
   using: 'node16'
-  main: 'bin/src/index.js'
+  main: 'dist/index.js'

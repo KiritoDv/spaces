@@ -4,8 +4,8 @@
   "description": "DigitalOcean Spaces Action",
   "main": "bin/src/index.js",
   "scripts": {
-    "test": "node bin/src/debug.js",
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc",
+    "dist": "npm run build && ncc build bin/src/index.js --license licenses.txt && rm -rf bin",
     "dev": "nodemon --exec \"npm run build && npm run test\" --watch ./src --ext ts"
   },
   "keywords": [],
