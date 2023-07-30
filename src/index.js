@@ -20,7 +20,7 @@ async function run() {
             Bucket: core.getInput('bucket'),
             Key: core.getInput('dest'),
             Body: fs.readFileSync(core.getInput('src')),
-            ACL: core.getBooleanInput('private') ? 'private' : 'public',
+            ACL: core.getInput('visibility').toLowerCase().trim(),
             Metadata: {}
         }
         const metadata = core.getMultilineInput('metadata');

@@ -19,7 +19,7 @@ inputs:
   dest:
     description: 'Destination path'
     required: true
-  private:
+  visibility:
     description: 'Specify file visibility (public or private)'
     required: true
   metadata:
