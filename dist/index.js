@@ -47380,7 +47380,7 @@ async function run() {
         if(metadata){
             metadata.forEach((line) => {
                 const [key, value] = line.replace(/\s+(?=([^"]*"[^"]*")*[^"]*$)/, '').split(':');
-                params.Metadata[`x-amz-meta-${key}`] = value;
+                params.Metadata[key] = value;
             })
         }
 
