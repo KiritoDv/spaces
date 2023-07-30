@@ -1,12 +1,10 @@
 {
   "name": "do-spaces-action",
-  "version": "0.0.1",
+  "version": "v0.1",
   "description": "DigitalOcean Spaces Action",
-  "main": "bin/src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "dist": "npm run build && ncc build bin/src/index.js --license licenses.txt && rm -rf bin",
-    "dev": "nodemon --exec \"npm run build && npm run test\" --watch ./src --ext ts"
+    "build": "ncc build src/index.js --license licenses.txt && rm -rf bin"
   },
   "keywords": [],
   "author": "",

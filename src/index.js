@@ -1,6 +1,7 @@
-import fs from 'fs';
-import core from '@actions/core';
-import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+const fs = require('fs');
+const core = require('@actions/core');
+const github = require('@actions/github');
+const { PutObjectCommand, S3Client } = require('@aws-sdk/client-s3');
 
 const endpoint = `https://${core.getInput('secret')}.digitaloceanspaces.com`;
 const client = new S3Client({
@@ -26,14 +27,14 @@ async function run() {
         if(metadata){
             metadata.forEach((line) => {
                 const [key, value] = line.replace(/\s+(?=([^"]*"[^"]*")*[^"]*$)/, '').split(':');
-                (params.Metadata as any)[`x-amz-meta-${key}`] = value;
+                params.Metadata[`x-amz-meta-${key}`] = value;
             })
         }
 
         const data = await client.send(new PutObjectCommand(params));
         core.setOutput('result', `${endpoint}/${params.Bucket}/${params.Key}`);
     } catch (err) {
-        core.setFailed(err as any);
+        core.setFailed(err);
     }
 }
 
