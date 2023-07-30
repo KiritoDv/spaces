@@ -2,7 +2,7 @@
   "name": "do-spaces-action",
   "version": "0.0.1",
   "description": "DigitalOcean Spaces Action",
-  "main": "bin/index.js",
+  "main": "bin/src/index.js",
   "scripts": {
     "test": "node bin/src/debug.js",
     "build": "tsc -p tsconfig.json",
