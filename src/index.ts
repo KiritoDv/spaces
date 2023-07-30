@@ -31,7 +31,7 @@ async function run() {
         }
 
         const data = await client.send(new PutObjectCommand(params));
-        core.setOutput(`${endpoint}/${params.Bucket}/${params.Key}`, data);
+        core.setOutput('result', `${endpoint}/${params.Bucket}/${params.Key}`);
     } catch (err) {
         core.setFailed(err as any);
     }

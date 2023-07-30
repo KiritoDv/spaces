@@ -1,15 +1,33 @@
-name: 'Discord Webhook Action'
-description: 'Send a message to a Discord webhook'
+name: 'DigitalOcean Spaces Action'
+description: 'Upload files to DigitalOcean Spaces (Even with Metadata <3)'
 inputs:
-  webhook:
-    description: 'Webhook url'
+  key:
+    description: 'Spaces api key'
     required: true
-  message:
-    description: 'Webhook payload / message'
+  secret:
+    description: 'Spaces api secret'
     required: true
+  region:
+    description: 'Spaces region e.g. sfo3'
+    required: true
+  bucket:
+    description: 'Spaces bucket name'
+    required: true
+  src:
+    description: 'Source file or directory (soon)'
+    required: true
+  dest:
+    description: 'Destination path'
+    required: true
+  private:
+    description: 'Specify file visibility (public or private)'
+    required: true
+  metadata:
+    description: 'Specify file metadata (e.g. Git-Hash: 123456789) [Optional]'
+    required: false
 outputs:
   result:
-    description: 'Webhook result'
+    description: 'Endpoint Result URL'
 runs:
   using: 'node16'
-  main: 'dist/index.js'
+  main: 'bin/src/index.js'
