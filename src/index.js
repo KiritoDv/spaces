@@ -3,7 +3,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const { PutObjectCommand, S3Client } = require('@aws-sdk/client-s3');
 
-const endpoint = `https://${core.getInput('secret')}.digitaloceanspaces.com`;
+const endpoint = `https://${core.getInput('region')}.digitaloceanspaces.com`;
 const client = new S3Client({
     endpoint: endpoint,
     forcePathStyle: false,

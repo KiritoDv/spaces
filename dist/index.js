@@ -47356,7 +47356,7 @@ const core = __nccwpck_require__(9935);
 const github = __nccwpck_require__(62835);
 const { PutObjectCommand, S3Client } = __nccwpck_require__(28085);
 
-const endpoint = `https://${core.getInput('secret')}.digitaloceanspaces.com`;
+const endpoint = `https://${core.getInput('region')}.digitaloceanspaces.com`;
 const client = new S3Client({
     endpoint: endpoint,
     forcePathStyle: false,
