@@ -8,6 +8,7 @@ async function run() {
         const client = new S3Client({
             forcePathStyle: false,
             region: core.getInput('region'),
+            endpoint: core.getInput('endpoint'),
             credentials: {
               accessKeyId: core.getInput('key'),
               secretAccessKey: core.getInput('secret')
