@@ -3,19 +3,16 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const { PutObjectCommand, S3Client } = require('@aws-sdk/client-s3');
 
-const endpoint = `https://${core.getInput('region')}.digitaloceanspaces.com`;
-const client = new S3Client({
-    endpoint: endpoint,
-    forcePathStyle: false,
-    region: core.getInput('region'),
-    credentials: {
-      accessKeyId: core.getInput('key'),
-      secretAccessKey: core.getInput('secret')
-    }
-});
-
 async function run() {
     try {
+        const client = new S3Client({
+            forcePathStyle: false,
+            region: core.getInput('region'),
+            credentials: {
+              accessKeyId: core.getInput('key'),
+              secretAccessKey: core.getInput('secret')
+            }
+        });
         const params = {
             Bucket: core.getInput('bucket'),
             Key: core.getInput('dest'),
