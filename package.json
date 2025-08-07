@@ -4,7 +4,7 @@
   "description": "DigitalOcean Spaces Action",
   "main": "dist/index.js",
   "scripts": {
-    "build": "ncc build src/index.js --license licenses.txt && rm -rf bin"
+    "build": "ncc build src/index.js --license licenses.txt -o dist"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,7 @@
     "@aws-sdk/client-s3": "^3.379.1"
   },
   "devDependencies": {
-    "@types/node": "^20.4.5"
+    "@types/node": "^20.4.5",
+    "@vercel/ncc": "^0.38.3"
   }
 }
