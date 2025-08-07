@@ -29,7 +29,7 @@ async function run() {
         }
 
         const data = await client.send(new PutObjectCommand(params));
-        core.setOutput('result', `${endpoint}/${params.Bucket}/${params.Key}`);
+        core.setOutput('result', `${params.Bucket}/${params.Key}`);
     } catch (err) {
         core.setFailed(err);
     }

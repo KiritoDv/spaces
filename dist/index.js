@@ -47359,7 +47359,6 @@ async function run() {
         const client = new S3Client({
             forcePathStyle: false,
             region: core.getInput('region'),
-            endpoint: core.getInput('endpoint'),
             credentials: {
               accessKeyId: core.getInput('key'),
               secretAccessKey: core.getInput('secret')
@@ -47381,7 +47380,7 @@ async function run() {
         }
 
         const data = await client.send(new PutObjectCommand(params));
-        core.setOutput('result', `${endpoint}/${params.Bucket}/${params.Key}`);
+        core.setOutput('result', `${params.Bucket}/${params.Key}`);
     } catch (err) {
         core.setFailed(err);
     }
